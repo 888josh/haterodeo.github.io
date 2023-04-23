@@ -1,34 +1,82 @@
 body{
-    background-color: black;
+    background-color: rgb(36, 39, 56);
+    margin: 0px;
 }
 
-p {
-    color: white;
-    font-size: 3vw;
-    font-family: "Rubik", sans-serif;
-    margin: 0rem;
-    text-transform: uppercase;
+#menu{
+    height: 100vh;
+    display: flex;
+    align-items: center;
 }
-a {
-    color: white;
-    font-size: 3vw;
-    font-family: "Rubik", sans-serif;
-    margin: 0rem;
-    text-transform: uppercase;
+
+#menu-items{
+    margin-left: clamp(4rem,20vw,48rem);
+    position: relative;
+    z-index: 2;
+}
+
+#menu-items:hover > .menu-item{
+    opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item:hover{
+    opacity: 1;
+}
+
+.menu-item{
+    color: aliceblue;
+    font-size: clamp(3rem,8vw,8rem);
+    font-family: "Ibarra Real Nova", serif;
+
+    display: block;
     text-decoration: none;
+    padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+    transition: opacity 500ms ease;
 }
 
-.line{
-    display: flex; 
-    justify-content: space-between;
+#background-pattern{
+    height: 100vh;
+    width: 100vh;
+
+    background-image:radial-gradient(
+        rgba(2255,255,255,0.1) 9%,
+        transparent 9%
+    );
+
+    background-position: 0% 0%;
+    background-size: 12vmin 12vmin;
+
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+
+    transition: opacity 500ms ease,
+    background-size 500ms ease;
+
 }
 
-body:has(.fancy:hover) .word:not(.fancy:hover){
-    opacity: 0.2;
+#menu-items:hover ~ #background-pattern{
+    background-size: 11vmin 11vmin;
+    opacity: 0.7;
 }
 
-div {
-    padding-right: 200px;
-    padding-left: 200px;
-  }
- 
+#menu[data-active-index = "0"] > #background-pattern{
+    background-position: 0% -25%;
+    transition: 500ms ease;
+}
+
+#menu[data-active-index = "1"] > #background-pattern{
+    background-position: 0% -50%;
+    transition: 500ms ease;
+}
+
+#menu[data-active-index = "2"] > #background-pattern{
+    background-position: 0% -75%;
+    transition: 500ms ease;
+}
+
+#menu[data-active-index = "3"] > #background-pattern{
+    background-position: 0% -100%;
+    transition: 500ms ease;
+}
