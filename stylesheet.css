@@ -3,6 +3,42 @@ body{
     margin: 0px;
 }
 
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background:rgb(15, 15, 15);
+    transition: .5s, visibility 1s;
+    z-index: 3;
+}
+
+.loader--hidden{
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+    transition-delay: 1.5s;
+}
+
+.name{
+    z-index: 4;
+    color: whitesmoke;
+    position: absolute;
+    top: 50%;     
+    left: 50%;          
+    transform: translate(-50%, -50%);
+    transition: opacity 500ms ease;
+}
+
+.name--hidden{
+    transition-delay: .75s;
+    opacity: 0;
+}
+
 #menu{
     height: 100vh;
     display: flex;
@@ -25,7 +61,7 @@ body{
 
 .menu-item{
     color: aliceblue;
-    font-size: clamp(3rem,8vw,8rem);
+    font-size: clamp(1rem,3vw,3rem);
     font-family: "Ibarra Real Nova", serif;
 
     display: block;
@@ -36,7 +72,7 @@ body{
 
 #background-pattern{
     height: 100vh;
-    width: 100vh;
+    width: 150vw;
 
     background-image:radial-gradient(
         rgba(2255,255,255,0.1) 9%,
